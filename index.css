@@ -27,8 +27,8 @@ body > main {
 body > main > h1 {
 	padding: 0 2rem;
 	color: transparent;
+	font-variant-caps: small-caps;
 	text-align: center;
-	text-transform: uppercase;
 	text-shadow: .2rem .2rem #fff, -.2rem -.2rem #f00;
 }
 body > main > h2 {
