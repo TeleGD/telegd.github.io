@@ -12,104 +12,102 @@
 }
 /*~~~~~~ body ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 body {
-	/*align-content: center;*/
-	justify-content: center;
-	grid-template-columns: auto;
-	grid-template-rows: auto auto auto;
 	display: grid;
-	/*width: 100vw;*/
-	height: 100vh;
+	min-height: 100vh;
 	background-color: #000;
 	color: #fff;
 	font-family: "Press Start 2P", monospace;
 }
-/*~~~~~~ h1, h2, nav, picture ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-h1,
-h2,
-nav,
-picture {
-	margin: 2rem;
-	padding: 0 2rem;
+/*~~~~~~ body > main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body > main {
+	align-self: center;
+	justify-self: center;
+	display: grid;
 }
-h1 {
-	position: relative; /* Edge patch */
-	z-index: 1; /* Edge patch */
-	align-self: end;
-	grid-column: 1;
-	grid-row: 1;
+body > main > h1 {
+	padding: 0 2rem;
 	color: transparent;
 	text-align: center;
 	text-transform: uppercase;
 	text-shadow: .2rem .2rem #fff, -.2rem -.2rem #f00;
 }
-h2 {
-	position: relative; /* Edge patch */
-	z-index: 1; /* Edge patch */
-	align-self: center;
-	grid-column: 1;
-	grid-row: 2;
+body > main > h2 {
+	padding: 0 2rem;
 	background-color: rgba(255, 255, 255, .4);
 	text-align: center;
 	text-transform: uppercase;
 	box-shadow: inset 0 0 0 .1rem #fff, 0 0 0 .1rem #fff;
 	animation: blink 4s linear infinite;
 }
-nav {
-	position: relative; /* Edge patch */
-	z-index: 1; /* Edge patch */
-	align-self: start;
-	align-content: center;
-	justify-content: center;
-	grid-gap: 2rem;
-	grid-column: 1;
-	grid-row: 3;
-	display: grid;
-}
-nav > a:not([download])[href] {
+body > main > ul {
 	padding: 0 2rem;
-	position: relative;
+	justify-self: center;
 }
-nav > a:not([download])[href]:hover,
-nav > a:not([download])[href]:focus {
+body > main > ul > li {
+	width: auto;
+	transform: none;
+}
+body > main > ul > li::before {
+	content: none;
+}
+body > main > ul > li > p {
+	margin: 2rem;
+}
+body > main > ul > li > p > a:not([download])[href] {
+	position: relative;
+	display: block;
+	text-align: left;
+}
+body > main > ul > li > p > a:not([download])[href]:hover,
+body > main > ul > li > p > a:not([download])[href]:focus {
+	outline: 0;
+	outline-offset: 0;
 	text-decoration: none;
 }
-nav > a:not([download])[href]::before,
-nav > a:not([download])[href]::after {
+body > main > ul > li > p > a:not([download])[href]::before,
+body > main > ul > li > p > a:not([download])[href]::after {
 	position: absolute;
 	top: 50%;
-	margin: auto;
+	width: 4rem;
 	color: #f00;
+	text-align: center;
 	opacity: 0;
-	transform: translateY(-50%);
 	transition: opacity .4s;
 }
-nav > a:not([download])[href]::before {
+body > main > ul > li > p > a:not([download])[href]::before {
 	content: ">>";
 	right: 100%;
+	transform: translate(-50%, -50%);
 }
-nav > a:not([download])[href]::after {
+body > main > ul > li > p > a:not([download])[href]::after {
 	content: "<<";
 	left: 100%;
+	transform: translate(50%, -50%);
 }
-nav > a:not([download])[href]:hover::before,
-nav > a:not([download])[href]:focus::before,
-nav > a:not([download])[href]:hover::after,
-nav > a:not([download])[href]:focus::after {
+body > main > ul > li > p > a:not([download])[href]:hover::before,
+body > main > ul > li > p > a:not([download])[href]:focus::before,
+body > main > ul > li > p > a:not([download])[href]:hover::after,
+body > main > ul > li > p > a:not([download])[href]:focus::after {
 	opacity: 1;
 }
-picture {
+/*~~~~~~ body > picture ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body > picture {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	z-index: -1;
-	align-items: center;
-	justify-items: center;
-	grid-column: 1 / -1;
-	grid-row: 1 / -1;
-	display: grid;
-	text-align: center;
+	margin: 2rem;
+	padding: 0 2rem;
 	filter: opacity(40%) blur(.4rem);
+	-moz-user-select: none;
+	user-select: none;
 }
-picture > img {
+body > picture > img {
 	width: 100%;
 	height: 100%;
-	object-fit: contain;
+	display: block;
+	object-fit: scale-down;
 	object-position: center;
 }
