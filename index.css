@@ -74,6 +74,7 @@ body > main > ul > li > p > a:not([download])[href]::after {
 	color: #f00;
 	text-align: center;
 	opacity: 0;
+	pointer-events: none;
 	transition: opacity .4s;
 }
 body > main > ul > li > p > a:not([download])[href]::before {
