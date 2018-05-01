@@ -1,0 +1,47 @@
+@import url("//fonts.googleapis.com/css?family=Press+Start+2P");
+/*~~~~~~ body ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body {
+	display: grid;
+	min-height: 100vh;
+	background-color: #000;
+	color: #fff;
+	font-family: "Press Start 2P", monospace;
+}
+/*~~~~~~ body > main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body > main {
+	align-self: center;
+	justify-self: center;
+	grid-template-columns: 25% 25% 25% 25%;
+	grid-template-rows: 50% 50%;
+	display: grid;
+	width: 100%;
+	height: 100%;
+}
+body > main > p {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	box-shadow: -.8rem -.8rem currentColor;
+	transform: translate(.4rem, .4rem);
+}
+/*~~~~~~ body > picture ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body > picture {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	margin: 2rem;
+	padding: 0 2rem;
+	filter: opacity(40%) blur(.4rem);
+	-moz-user-select: none;
+	user-select: none;
+}
+body > picture > img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: scale-down;
+	object-position: center;
+}
