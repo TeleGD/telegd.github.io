@@ -1,3 +1,4 @@
+@import url("/reset.css");
 @import url("//fonts.googleapis.com/css?family=Press+Start+2P");
 /*~~~~~~ body ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 body {
@@ -7,8 +8,8 @@ body {
 	color: #fff;
 	font-family: "Press Start 2P", monospace;
 }
-/*~~~~~~ body > main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-body > main {
+/*~~~~~~ main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+main {
 	align-self: center;
 	justify-self: center;
 	grid-template-columns: 25% 25% 25% 25%;
@@ -17,15 +18,14 @@ body > main {
 	width: 100%;
 	height: 100%;
 }
-body > main > p {
+main > p {
 	display: grid;
 	align-items: center;
 	justify-items: center;
 	box-shadow: -.8rem -.8rem currentColor;
 	transform: translate(.4rem, .4rem);
 }
-/*~~~~~~ body > picture ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-body > picture {
+main > figure {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -38,10 +38,9 @@ body > picture {
 	-moz-user-select: none;
 	user-select: none;
 }
-body > picture > img {
+main > figure > picture > img {
 	width: 100%;
 	height: 100%;
-	display: block;
 	object-fit: scale-down;
 	object-position: center;
 }

@@ -3,20 +3,15 @@
 ::before,
 ::after {
 	box-sizing: border-box;
-	vertical-align: top;
 	outline: 0;
+	vertical-align: top;
 	line-height: inherit;
 	color: inherit;
 	font-family: inherit;
 	font-size: inherit;
-	text-decoration: inherit;
-}
-::-moz-selection {
-	background-color: rgba(255, 204, 51, .5);
-	color: #333;
 }
 ::selection {
-	background-color: rgba(255, 204, 51, .5);
+	background-color: #fc39;
 	color: #333;
 }
 ::-moz-focus-inner {
@@ -24,15 +19,14 @@
 }
 /*~~~~~~ html, body ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 html {
-	/*padding: 0;*/
-	font-size: .625em; /*1rem*/
+	font-size: .625em; /* 1rem */
 }
 body {
 	margin: 0;
 	line-height: 1.25;
 	color: #333;
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1.6em; /*1.6rem*/
+	font-size: 1.6em; /* 1.6rem */
 }
 /*~~~~~~ h1, h2, h3, h4, h5, h6, p, dl, ol, ul ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h1,
@@ -54,7 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-	min-height: 4rem;
+	font-weight: bold;
 }
 h1 {
 	font-size: 3.2rem;
@@ -83,8 +77,8 @@ p,
 dl,
 ol,
 ul {
-	min-height: 2rem;
 	text-align: justify;
+	text-justify: inter-word;
 }
 ol {
 	counter-reset: ol;
@@ -93,46 +87,43 @@ ol {
 ul {
 	list-style: none;
 }
-dl > dt,
+dl > dt {
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
 dl > dd,
 ol > li,
 ul > li {
 	display: block;
 	min-height: 2rem;
-	margin: 0;
+	margin: 0 -2rem 0 2rem;
 	padding: 0;
-}
-dl > dd,
-ol > li,
-ul > li {
-	width: calc(100% - 4rem);
-	transform: translate(4rem);
-}
-dl > dd::before,
-dl > dd::after,
-ol > li::before,
-ul > li::before {
-	float: left;
-	transform: translate(-4rem);
 }
 dl > dd::before {
 	content: "";
+	float: left;
 	width: .8rem;
-	margin: .9rem -2.4rem .9rem 1.6rem;
+	height: .2rem;
+	margin: .9rem -.4rem .9rem -.4rem;
 	border-bottom: .2rem solid currentColor;
 }
 ol > li::before {
-	counter-increment: ol;
 	content: "." counter(ol);
-	width: .8rem;
-	margin: 0 -2.4rem 0 1.6rem;
+	float: left;
+	width: 2rem;
+	height: 2rem;
+	margin: 0 -1rem 0 -1rem;
 	direction: rtl;
+	counter-increment: ol;
 }
 ul > li::before {
 	content: "";
+	float: left;
 	width: .8rem;
 	height: .8rem;
-	margin: .6rem -2.4rem .6rem 1.6rem;
+	margin: .6rem -.4rem .6rem -.4rem;
 	border: .4rem solid currentColor;
 	border-radius: .4rem;
 }
@@ -149,20 +140,6 @@ ul > li > ul > li > ul > li > ul > li::before {
 ul > li > ul > li > ul > li > ul > li > ul > li::before {
 	border-width: .4rem 0 .4rem .8rem;
 	border-color: transparent transparent transparent currentColor;
-}
-dl > dd > p,
-dl > dd > dl,
-dl > dd > ol,
-dl > dd > ul,
-ol > li > p,
-ol > li > dl,
-ol > li > ol,
-ol > li > ul,
-ul > li > p,
-ul > li > dl,
-ul > li > ol,
-ul > li > ul {
-	margin: 0;
 }
 /*~~~~~~ sub, sup ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 sub,
@@ -187,11 +164,18 @@ ins {
 mark {
 	background-color: #ff9;
 }
-/*~~~~~~ abbr, code, kbd ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~ abbr[title], q ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 abbr[title] {
+	font-variant-caps: small-caps;
 	cursor: help;
 }
-code {
+q {
+	quotes: "«\A0" "\A0»" "\"" "\"";
+}
+/*~~~~~~ code, kbd, samp ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+code,
+kbd,
+samp {
 	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 	-moz-tab-size: 4;
 	tab-size: 4;
@@ -199,26 +183,24 @@ code {
 	-ms-hyphens: none;
 	hyphens: none;
 }
-:not(pre) > code {
+:not(pre) > code,
+:not(pre) > kbd,
+:not(pre) > samp {
 	padding: 0 .4rem;
 	border-radius: .4rem;
 	background-color: #eee;
+	box-shadow: inset 0 0 0 .1rem currentColor, inset 0 0 0 .2rem #fff;
 }
-kbd {
-	padding: 0 .4rem;
-	background-color: #eee;
-	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-	box-shadow: inset 0 0 0 .1rem #333, inset 0 0 0 .2rem #fff;
-}
-/*~~~~~~ a:not([download])[href] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-a:not([download])[href] {
+/*~~~~~~ a:not([download]) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+a:not([download]) {
+	text-decoration: inherit;
 	cursor: pointer;
 }
-a:not([download])[href]:hover,
-a:not([download])[href]:focus {
+a:not([download]):hover,
+a:not([download]):focus-within {
 	text-decoration: underline;
 }
-a:not([download])[href]:focus {
-	outline: .05rem dashed rgba(0, 0, 0, .5);
+a:not([download]):focus-within {
+	outline: .05rem dashed #0009;
 	outline-offset: -.05rem;
 }
