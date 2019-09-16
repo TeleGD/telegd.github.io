@@ -1,5 +1,10 @@
 @import url("/reset.css");
-@import url("//fonts.googleapis.com/css?family=Press+Start+2P");
+@font-face {
+	font-family: "Press Start 2P";
+	font-style: normal;
+	font-weight: normal;
+	src: local("Press Start 2P Regular"), local("PressStart2P-Regular"), url("/fonts/press-start-2p.woff2") format("woff2"), url("/fonts/press-start-2p.woff") format("woff");
+}
 @keyframes blink {
 	20% {
 		color: currentColor;
@@ -23,10 +28,12 @@ body {
 main {
 	align-self: center;
 	justify-self: center;
-	display: grid;
+	margin: -2rem 0;
+	padding: 0 2rem;
 }
 main > h1 {
 	min-height: 5rem;
+	margin: 4rem 0;
 	padding: 0 2rem;
 	color: transparent;
 	font-size: 4rem;
@@ -35,6 +42,7 @@ main > h1 {
 	text-shadow: .2rem .2rem #fff, -.2rem -.2rem #f00;
 }
 main > h2 {
+	margin: 4rem 0;
 	padding: 0 2rem;
 	background-color: #fff6;
 	text-align: center;
@@ -43,19 +51,32 @@ main > h2 {
 	animation: blink 4s linear infinite;
 }
 main > ul {
-	justify-self: center;
-	padding: 0 2rem;
+	width: intrinsic;
+	width: max-content;
+	margin: 4rem auto;
+	pointer-events: none;
 }
 main > ul > li {
-	margin: 0 -2rem;
+	margin: 0;
+	padding: 0 2rem;
 }
 main > ul > li::before {
 	content: none;
 }
+main > ul > li > p {
+	margin: 2rem 0;
+}
 main > ul > li > p > a:not([download]) {
 	position: relative;
-	display: block;
-	text-align: left;
+	display: inline-block;
+	width: calc(100% + 2rem);
+	width: -moz-available;
+	width: -webkit-fill-available;
+	width: fill-available;
+	width: stretch;
+	margin: -1rem;
+	padding: 1rem;
+	pointer-events: auto;
 }
 main > ul > li > p > a:not([download]):hover,
 main > ul > li > p > a:not([download]):focus-within {
@@ -67,7 +88,6 @@ main > ul > li > p > a:not([download])::before,
 main > ul > li > p > a:not([download])::after {
 	position: absolute;
 	top: 50%;
-	width: 4rem;
 	color: #f00;
 	text-align: center;
 	opacity: 0;
@@ -77,12 +97,12 @@ main > ul > li > p > a:not([download])::after {
 main > ul > li > p > a:not([download])::before {
 	content: ">>";
 	right: 100%;
-	transform: translate(-50%, -50%);
+	transform: translate(-1rem, -50%);
 }
 main > ul > li > p > a:not([download])::after {
 	content: "<<";
 	left: 100%;
-	transform: translate(50%, -50%);
+	transform: translate(1rem, -50%);
 }
 main > ul > li > p > a:not([download]):hover::before,
 main > ul:not(:hover) > li > p > a:not([download]):focus-within::before,
