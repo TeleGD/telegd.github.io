@@ -1,9 +1,9 @@
-@import url("/reset.css");
+@import url("./reset.css");
 @font-face {
 	font-family: "Press Start 2P";
 	font-style: normal;
 	font-weight: normal;
-	src: local("Press Start 2P Regular"), local("PressStart2P-Regular"), url("/fonts/press-start-2p.woff2") format("woff2"), url("/fonts/press-start-2p.woff") format("woff");
+	src: local("Press Start 2P Regular"), local("PressStart2P-Regular"), url("./fonts/press-start-2p.woff2") format("woff2"), url("./fonts/press-start-2p.woff") format("woff");
 }
 @keyframes blink {
 	20% {
@@ -24,10 +24,22 @@ body {
 	color: #fff;
 	font-family: "Press Start 2P", monospace;
 }
+body::after {
+	content: "";
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: -1;
+	width: 768px;
+	height: 768px;
+	max-width: calc(150% - 6rem);
+	max-height: calc(150% - 6rem);
+	background: url("./background.png") center / contain no-repeat;
+	transform: translate(-50%, -50%);
+}
 /*~~~~~~ main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 main {
-	align-self: center;
-	justify-self: center;
+	place-self: center;
 	margin: -2rem 0;
 	padding: 0 2rem;
 }
@@ -109,23 +121,4 @@ main > ul:not(:hover) > li > p > a:not([download]):focus-within::before,
 main > ul > li > p > a:not([download]):hover::after,
 main > ul:not(:hover) > li > p > a:not([download]):focus-within::after {
 	opacity: 1;
-}
-main > figure {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: -1;
-	margin: 2rem;
-	padding: 0 2rem;
-	-moz-user-select: none;
-	user-select: none;
-}
-main > figure > picture > img {
-	width: 150%;
-	height: 150%;
-	transform: translate(-16.67%, -16.67%);
-	object-fit: scale-down;
-	object-position: center;
 }
