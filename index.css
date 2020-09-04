@@ -78,7 +78,7 @@ main > ul > li::before {
 main > ul > li > p {
 	margin: 2rem 0;
 }
-main > ul > li > p > a:not([download]) {
+main > ul > li > p > a {
 	position: relative;
 	display: inline-block;
 	width: calc(100% + 2rem);
@@ -90,14 +90,14 @@ main > ul > li > p > a:not([download]) {
 	padding: 1rem;
 	pointer-events: auto;
 }
-main > ul > li > p > a:not([download]):hover,
-main > ul > li > p > a:not([download]):focus-within {
+main > ul > li > p > a:hover,
+main > ul > li > p > a:focus-within {
 	outline: 0;
 	outline-offset: 0;
 	text-decoration: none;
 }
-main > ul > li > p > a:not([download])::before,
-main > ul > li > p > a:not([download])::after {
+main > ul > li > p > a::before,
+main > ul > li > p > a::after {
 	position: absolute;
 	top: 50%;
 	color: #f00;
@@ -106,19 +106,19 @@ main > ul > li > p > a:not([download])::after {
 	pointer-events: none;
 	transition: opacity .4s;
 }
-main > ul > li > p > a:not([download])::before {
+main > ul > li > p > a::before {
 	content: ">>";
 	right: 100%;
 	transform: translate(-1rem, -50%);
 }
-main > ul > li > p > a:not([download])::after {
+main > ul > li > p > a::after {
 	content: "<<";
 	left: 100%;
 	transform: translate(1rem, -50%);
 }
-main > ul > li > p > a:not([download]):hover::before,
-main > ul:not(:hover) > li > p > a:not([download]):focus-within::before,
-main > ul > li > p > a:not([download]):hover::after,
-main > ul:not(:hover) > li > p > a:not([download]):focus-within::after {
+main > ul > li > p > a:hover::before,
+main > ul:not(:hover) > li > p > a:focus-within::before,
+main > ul > li > p > a:hover::after,
+main > ul:not(:hover) > li > p > a:focus-within::after {
 	opacity: 1;
 }
