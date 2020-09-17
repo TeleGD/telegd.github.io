@@ -1,1 +1,1 @@
-document.querySelector("main > ul > li > p > a").focus();
+document.querySelector("main > nav > ul > li > p > a").focus();
